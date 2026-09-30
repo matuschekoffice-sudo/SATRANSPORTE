@@ -1,401 +1,499 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S&A TRANSPORTE</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<title>S&A TRANSPORTE</title>
 
-    html {
-      scroll-behavior: smooth;
-    }
+<style>
+:root {
+  --gold: #d6a858;
+  --gold-light: #efc778;
+  --dark: #121416;
+  --dark2: #1a1c1e;
+  --cream: #f3f0e9;
+  --grey: #b9b9b6;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #101316;
-      color: #f1f1f1;
-      line-height: 1.6;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 28px 7%;
-      border-bottom: 1px solid rgba(255,255,255,.12);
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    .logo {
-      font-size: 25px;
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--dark);
+  color: white;
+}
 
-    .logo span {
-      color: #d7b44a;
-    }
+/* NAVIGATION */
 
-    nav {
-      display: flex;
-      gap: 32px;
-    }
+header {
+  height: 76px;
+  background: #f3f0e9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  position: relative;
+  z-index: 20;
+}
 
-    nav a {
-      color: #eee;
-      text-decoration: none;
-      font-size: 14px;
-      letter-spacing: 1px;
-    }
+.logo {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: #111;
+  border-left: 8px solid #f2c544;
+  border-right: 8px solid #3389e8;
+  padding: 4px 8px;
+}
 
-    nav a:hover {
-      color: #d7b44a;
-    }
+nav {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 140px 7% 80px;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(10,13,16,.97) 0%,
-          rgba(10,13,16,.87) 50%,
-          rgba(10,13,16,.45) 100%
-        ),
-        linear-gradient(
-          135deg,
-          #1a2025 0%,
-          #111519 55%,
-          #252b30 100%
-        );
-    }
+nav a {
+  color: #222;
+  text-decoration: none;
+  font-size: 14px;
+}
 
-    .hero-content {
-      max-width: 720px;
-    }
+nav a:first-child {
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 12px;
+}
 
-    .eyebrow {
-      color: #d7b44a;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 13px;
-      margin-bottom: 20px;
-    }
+.header-button {
+  background: #151719;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 4px;
+}
 
-    h1 {
-      font-size: clamp(48px, 8vw, 92px);
-      line-height: .95;
-      letter-spacing: -3px;
-      margin-bottom: 28px;
-    }
+/* HERO */
 
-    .hero p {
-      max-width: 600px;
-      color: #bfc4c7;
-      font-size: 19px;
-      margin-bottom: 38px;
-    }
+.hero {
+  min-height: 510px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 60px 6%;
+  overflow: hidden;
 
-    .button {
-      display: inline-block;
-      padding: 15px 27px;
-      border: 1px solid #d7b44a;
-      color: #f4f4f4;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 12px;
-    }
+  background:
+    linear-gradient(
+      90deg,
+      rgba(13,15,16,.97) 0%,
+      rgba(13,15,16,.82) 36%,
+      rgba(13,15,16,.28) 65%,
+      rgba(13,15,16,.08) 100%
+    ),
+    url("truck.jpg") center right / cover no-repeat;
+}
 
-    .button:hover {
-      background: #d7b44a;
-      color: #111;
-    }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(214,168,88,.05),
+      transparent 50%
+    );
+  pointer-events: none;
+}
 
-    section {
-      padding: 100px 7%;
-    }
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
 
-    .section-label {
-      color: #d7b44a;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 12px;
-      margin-bottom: 12px;
-    }
+.small-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  letter-spacing: 5px;
+  font-size: 12px;
+  color: #c6c6c3;
+  margin-bottom: 20px;
+}
 
-    h2 {
-      font-size: 38px;
-      margin-bottom: 25px;
-    }
+.small-title::before {
+  content: "";
+  width: 40px;
+  height: 3px;
+  background: var(--gold);
+}
 
-    .intro {
-      background: #15191d;
-    }
+.hero h1 {
+  font-size: clamp(50px, 6vw, 76px);
+  line-height: .98;
+  margin-bottom: 25px;
+}
 
-    .intro p {
-      max-width: 850px;
-      color: #bfc4c7;
-      font-size: 18px;
-    }
+.hero h1 span {
+  display: block;
+  color: var(--gold-light);
+}
 
-    .services {
-      background: #0e1114;
-    }
+.hero-description {
+  color: #d0d0cd;
+  font-size: 19px;
+  line-height: 1.55;
+  max-width: 560px;
+  margin-bottom: 32px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: #30363b;
-      margin-top: 50px;
-    }
+.hero-buttons {
+  display: flex;
+  gap: 18px;
+}
 
-    .card {
-      background: #15191d;
-      padding: 45px 35px;
-      min-height: 250px;
-    }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 205px;
+  padding: 16px 22px;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 4px;
+}
 
-    .number {
-      color: #d7b44a;
-      font-size: 12px;
-      letter-spacing: 2px;
-    }
+.btn-gold {
+  background: linear-gradient(90deg, #d4a654, #edc676);
+  color: #171717;
+}
 
-    .card h3 {
-      margin: 28px 0 15px;
-      font-size: 22px;
-    }
+.btn-outline {
+  border: 1px solid var(--gold);
+  color: white;
+  background: rgba(0,0,0,.25);
+}
 
-    .card p {
-      color: #aeb4b8;
-      font-size: 15px;
-    }
+/* FEATURES */
 
-    .fleet {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 70px;
-      align-items: center;
-      background: #171b1f;
-    }
+.features {
+  background:
+    linear-gradient(90deg, #1b1c1d, #26221c, #1a1b1c);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 25px 5%;
+  border-top: 1px solid rgba(214,168,88,.35);
+  border-bottom: 1px solid rgba(214,168,88,.25);
+}
 
-    .fleet-image {
-      min-height: 400px;
-      background: #242a2f;
-      border: 1px solid #343a3f;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #747b80;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 12px;
-    }
+.feature {
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 5px 28px;
+  border-right: 1px solid rgba(255,255,255,.18);
+}
 
-    .fleet p {
-      color: #bfc4c7;
-      margin-bottom: 30px;
-    }
+.feature:last-child {
+  border-right: none;
+}
 
-    .contact {
-      text-align: center;
-      background: #0d1012;
-      padding-top: 110px;
-      padding-bottom: 110px;
-    }
+.icon {
+  color: var(--gold-light);
+  font-size: 36px;
+  min-width: 44px;
+}
 
-    .contact p {
-      color: #adb3b7;
-      margin: 0 auto 35px;
-      max-width: 600px;
-    }
+.feature h3 {
+  font-size: 15px;
+  line-height: 1.25;
+  margin-bottom: 7px;
+}
 
-    footer {
-      border-top: 1px solid #292e32;
-      padding: 30px 7%;
-      color: #747b80;
-      font-size: 12px;
-      display: flex;
-      justify-content: space-between;
-    }
+.feature p {
+  color: #aaa9a6;
+  font-size: 12px;
+  line-height: 1.45;
+}
 
-    @media (max-width: 800px) {
-      nav {
-        gap: 12px;
-      }
+/* ABOUT */
 
-      nav a {
-        font-size: 11px;
-      }
+.about {
+  min-height: 300px;
+  padding: 50px 6%;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 70px;
 
-      .cards,
-      .fleet {
-        grid-template-columns: 1fr;
-      }
+  background:
+    radial-gradient(
+      circle at 90% 30%,
+      rgba(213,165,79,.18),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #1c1e20,
+      #101214
+    );
+}
 
-      footer {
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
-  </style>
+.about-left {
+  max-width: 700px;
+}
+
+.about h2 {
+  font-size: 38px;
+  margin-bottom: 18px;
+}
+
+.about h2 span {
+  color: var(--gold-light);
+}
+
+.about p {
+  color: #bbb;
+  line-height: 1.55;
+  font-size: 16px;
+}
+
+.about-right {
+  border-left: 1px solid rgba(255,255,255,.22);
+  padding-left: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.about-right ul {
+  list-style: none;
+}
+
+.about-right li {
+  margin: 17px 0;
+  color: #dededb;
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 14px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold-light);
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+  header {
+    height: auto;
+    padding: 18px 5%;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .header-button {
+    display: none;
+  }
+
+  .hero {
+    min-height: 650px;
+    padding: 70px 6%;
+    background:
+      linear-gradient(
+        rgba(12,14,15,.85),
+        rgba(12,14,15,.65)
+      ),
+      url("truck.jpg") center / cover no-repeat;
+  }
+
+  .features {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .feature:nth-child(2) {
+    border-right: none;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about-right {
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,.2);
+    padding: 25px 0 0;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .feature {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+  }
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">S<span>&</span>A TRANSPORTE</div>
+
+  <div class="logo">
+    S&A TRANSPORTE
+  </div>
 
   <nav>
-    <a href="#start">START</a>
-    <a href="#leistungen">LEISTUNGEN</a>
-    <a href="#fuhrpark">FUHRPARK</a>
-    <a href="#kontakt">KONTAKT</a>
+    <a href="#start">Startseite</a>
+    <a href="#flotte">Flotte</a>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#dokumente">Dokumente</a>
+    <a href="#kontakt">Kontakt</a>
   </nav>
+
+  <a class="header-button" href="#kontakt">
+    ✉ &nbsp; Unverbindlich anfragen
+  </a>
+
 </header>
+
 
 <main>
 
-  <section class="hero" id="start">
-    <div class="hero-content">
+<section class="hero" id="start">
 
-      <div class="eyebrow">
-        Transport · Logistik · Erfahrung
-      </div>
+  <div class="hero-content">
 
-      <h1>
-        S&A<br>
-        TRANSPORTE
-      </h1>
+    <div class="small-title">
+      S&A TRANSPORTE
+    </div>
 
-      <p>
-        Zuverlässige Transportlösungen mit Erfahrung,
-        Verantwortung und persönlichem Service.
-        Sicher unterwegs – vom Start bis zum Ziel.
-      </p>
+    <h1>
+      Zuverlässig
+      <span>in Bewegung.</span>
+    </h1>
 
-      <a class="button" href="#leistungen">
-        Leistungen entdecken
+    <p class="hero-description">
+      Flexible Transportlösungen in ganz Europa –
+      sicher, pünktlich und partnerschaftlich.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a class="btn btn-gold" href="#kontakt">
+        Unverbindlich anfragen &nbsp; →
+      </a>
+
+      <a class="btn btn-outline" href="#leistungen">
+        Unsere Leistungen
       </a>
 
     </div>
-  </section>
 
-  <section class="intro">
+  </div>
 
-    <div class="section-label">S&A Transporte</div>
+</section>
 
-    <h2>Zuverlässigkeit auf jeder Strecke.</h2>
 
-    <p>
-      Wir stehen für professionelle Transportlösungen,
-      persönliche Betreuung und einen verantwortungsvollen
-      Umgang mit jeder Ladung. Erfahrung, Flexibilität und
-      Verlässlichkeit begleiten uns auf jeder Strecke.
-    </p>
+<section class="features" id="leistungen">
 
-  </section>
-
-  <section class="services" id="leistungen">
-
-    <div class="section-label">Unsere Leistungen</div>
-
-    <h2>Transport mit Verantwortung.</h2>
-
-    <div class="cards">
-
-      <article class="card">
-        <div class="number">01</div>
-        <h3>Transport</h3>
-        <p>
-          Zuverlässige und sorgfältig organisierte Transporte
-          für unsere Kunden in Deutschland und Europa.
-        </p>
-      </article>
-
-      <article class="card">
-        <div class="number">02</div>
-        <h3>Logistik</h3>
-        <p>
-          Durchdachte Planung, kurze Kommunikationswege
-          und flexible Lösungen für unterschiedliche Anforderungen.
-        </p>
-      </article>
-
-      <article class="card">
-        <div class="number">03</div>
-        <h3>Service</h3>
-        <p>
-          Persönliche Betreuung und direkte Erreichbarkeit
-          vom ersten Kontakt bis zur erfolgreichen Lieferung.
-        </p>
-      </article>
-
-    </div>
-  </section>
-
-  <section class="fleet" id="fuhrpark">
-
-    <div class="fleet-image">
-      Fuhrpark · Bild folgt
-    </div>
-
+  <div class="feature">
+    <div class="icon">▣</div>
     <div>
-      <div class="section-label">Fuhrpark</div>
+      <h3>Individuelle<br>Transportlösungen</h3>
+      <p>Passend zu Ihren Anforderungen.</p>
+    </div>
+  </div>
 
-      <h2>Bereit für die Straße.</h2>
+  <div class="feature">
+    <div class="icon">◎</div>
+    <div>
+      <h3>Europaweite<br>Fahrten</h3>
+      <p>Flexibel und termingerecht.</p>
+    </div>
+  </div>
 
-      <p>
-        Ein zuverlässiger Fuhrpark bildet die Grundlage
-        unserer täglichen Arbeit. Hier werden später unsere
-        ausgewählten Fahrzeugaufnahmen integriert – dezent,
-        authentisch und passend zum Charakter von S&A TRANSPORTE.
-      </p>
+  <div class="feature">
+    <div class="icon">◇</div>
+    <div>
+      <h3>Sichere<br>Abwicklung</h3>
+      <p>Kompetent und erfahren.</p>
+    </div>
+  </div>
 
-      <a class="button" href="#kontakt">
-        Kontakt
-      </a>
+  <div class="feature">
+    <div class="icon">♢</div>
+    <div>
+      <h3>Zuverlässiger<br>Partner</h3>
+      <p>Langfristige Zusammenarbeit.</p>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="about" id="flotte">
+
+  <div class="about-left">
+
+    <div class="small-title">
+      S&A TRANSPORTE
     </div>
 
-  </section>
-
-  <section class="contact" id="kontakt">
-
-    <div class="section-label">Kontakt</div>
-
-    <h2>Gemeinsam ans Ziel.</h2>
+    <h2>
+      <span>Ihr Partner</span> im Transport.
+    </h2>
 
     <p>
-      Sie haben eine Transportanfrage oder möchten mehr
-      über unsere Leistungen erfahren? Sprechen Sie uns an.
+      Wir bieten zuverlässige, flexible und professionelle
+      Transportlösungen in ganz Europa. Mit moderner Technik,
+      langjähriger Erfahrung und einem starken Partnernetzwerk
+      sorgen wir dafür, dass Ihre Fracht sicher, pünktlich
+      und effizient ans Ziel kommt.
     </p>
 
-    <a class="button" href="mailto:info@example.de">
-      Anfrage senden
-    </a>
+  </div>
 
-  </section>
+  <div class="about-right">
+
+    <ul>
+      <li><span class="check">✓</span>Zuverlässig und pünktlich</li>
+      <li><span class="check">✓</span>Flexible Transportlösungen</li>
+      <li><span class="check">✓</span>Europaweit unterwegs</li>
+      <li><span class="check">✓</span>Persönliche Betreuung</li>
+    </ul>
+
+  </div>
+
+</section>
 
 </main>
-
-<footer>
-  <div>© 2026 S&A TRANSPORTE</div>
-  <div>Deutschland</div>
-</footer>
 
 </body>
 </html>
