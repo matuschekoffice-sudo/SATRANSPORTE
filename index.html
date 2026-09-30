@@ -4,22 +4,398 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>S&A TRANSPORTE</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #101316;
+      color: #f1f1f1;
+      line-height: 1.6;
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 7%;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: #d7b44a;
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+    }
+
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover {
+      color: #d7b44a;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 7% 80px;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(10,13,16,.97) 0%,
+          rgba(10,13,16,.87) 50%,
+          rgba(10,13,16,.45) 100%
+        ),
+        linear-gradient(
+          135deg,
+          #1a2025 0%,
+          #111519 55%,
+          #252b30 100%
+        );
+    }
+
+    .hero-content {
+      max-width: 720px;
+    }
+
+    .eyebrow {
+      color: #d7b44a;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: .95;
+      letter-spacing: -3px;
+      margin-bottom: 28px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: #bfc4c7;
+      font-size: 19px;
+      margin-bottom: 38px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 27px;
+      border: 1px solid #d7b44a;
+      color: #f4f4f4;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+    }
+
+    .button:hover {
+      background: #d7b44a;
+      color: #111;
+    }
+
+    section {
+      padding: 100px 7%;
+    }
+
+    .section-label {
+      color: #d7b44a;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 38px;
+      margin-bottom: 25px;
+    }
+
+    .intro {
+      background: #15191d;
+    }
+
+    .intro p {
+      max-width: 850px;
+      color: #bfc4c7;
+      font-size: 18px;
+    }
+
+    .services {
+      background: #0e1114;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #30363b;
+      margin-top: 50px;
+    }
+
+    .card {
+      background: #15191d;
+      padding: 45px 35px;
+      min-height: 250px;
+    }
+
+    .number {
+      color: #d7b44a;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .card h3 {
+      margin: 28px 0 15px;
+      font-size: 22px;
+    }
+
+    .card p {
+      color: #aeb4b8;
+      font-size: 15px;
+    }
+
+    .fleet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+      background: #171b1f;
+    }
+
+    .fleet-image {
+      min-height: 400px;
+      background: #242a2f;
+      border: 1px solid #343a3f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #747b80;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+    }
+
+    .fleet p {
+      color: #bfc4c7;
+      margin-bottom: 30px;
+    }
+
+    .contact {
+      text-align: center;
+      background: #0d1012;
+      padding-top: 110px;
+      padding-bottom: 110px;
+    }
+
+    .contact p {
+      color: #adb3b7;
+      margin: 0 auto 35px;
+      max-width: 600px;
+    }
+
+    footer {
+      border-top: 1px solid #292e32;
+      padding: 30px 7%;
+      color: #747b80;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 11px;
+      }
+
+      .cards,
+      .fleet {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <header>
-    <h1>S&A TRANSPORTE</h1>
-    <p>Transport. Zuverlässigkeit. Erfahrung.</p>
-  </header>
 
-  <main>
-    <section>
-      <h2>Willkommen bei S&A TRANSPORTE</h2>
+<header>
+  <div class="logo">S<span>&</span>A TRANSPORTE</div>
+
+  <nav>
+    <a href="#start">START</a>
+    <a href="#leistungen">LEISTUNGEN</a>
+    <a href="#fuhrpark">FUHRPARK</a>
+    <a href="#kontakt">KONTAKT</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero" id="start">
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        Transport · Logistik · Erfahrung
+      </div>
+
+      <h1>
+        S&A<br>
+        TRANSPORTE
+      </h1>
+
       <p>
         Zuverlässige Transportlösungen mit Erfahrung,
         Verantwortung und persönlichem Service.
+        Sicher unterwegs – vom Start bis zum Ziel.
       </p>
-    </section>
-  </main>
+
+      <a class="button" href="#leistungen">
+        Leistungen entdecken
+      </a>
+
+    </div>
+  </section>
+
+  <section class="intro">
+
+    <div class="section-label">S&A Transporte</div>
+
+    <h2>Zuverlässigkeit auf jeder Strecke.</h2>
+
+    <p>
+      Wir stehen für professionelle Transportlösungen,
+      persönliche Betreuung und einen verantwortungsvollen
+      Umgang mit jeder Ladung. Erfahrung, Flexibilität und
+      Verlässlichkeit begleiten uns auf jeder Strecke.
+    </p>
+
+  </section>
+
+  <section class="services" id="leistungen">
+
+    <div class="section-label">Unsere Leistungen</div>
+
+    <h2>Transport mit Verantwortung.</h2>
+
+    <div class="cards">
+
+      <article class="card">
+        <div class="number">01</div>
+        <h3>Transport</h3>
+        <p>
+          Zuverlässige und sorgfältig organisierte Transporte
+          für unsere Kunden in Deutschland und Europa.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="number">02</div>
+        <h3>Logistik</h3>
+        <p>
+          Durchdachte Planung, kurze Kommunikationswege
+          und flexible Lösungen für unterschiedliche Anforderungen.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="number">03</div>
+        <h3>Service</h3>
+        <p>
+          Persönliche Betreuung und direkte Erreichbarkeit
+          vom ersten Kontakt bis zur erfolgreichen Lieferung.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="fleet" id="fuhrpark">
+
+    <div class="fleet-image">
+      Fuhrpark · Bild folgt
+    </div>
+
+    <div>
+      <div class="section-label">Fuhrpark</div>
+
+      <h2>Bereit für die Straße.</h2>
+
+      <p>
+        Ein zuverlässiger Fuhrpark bildet die Grundlage
+        unserer täglichen Arbeit. Hier werden später unsere
+        ausgewählten Fahrzeugaufnahmen integriert – dezent,
+        authentisch und passend zum Charakter von S&A TRANSPORTE.
+      </p>
+
+      <a class="button" href="#kontakt">
+        Kontakt
+      </a>
+    </div>
+
+  </section>
+
+  <section class="contact" id="kontakt">
+
+    <div class="section-label">Kontakt</div>
+
+    <h2>Gemeinsam ans Ziel.</h2>
+
+    <p>
+      Sie haben eine Transportanfrage oder möchten mehr
+      über unsere Leistungen erfahren? Sprechen Sie uns an.
+    </p>
+
+    <a class="button" href="mailto:info@example.de">
+      Anfrage senden
+    </a>
+
+  </section>
+
+</main>
+
+<footer>
+  <div>© 2026 S&A TRANSPORTE</div>
+  <div>Deutschland</div>
+</footer>
+
 </body>
 </html>
