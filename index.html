@@ -1,26 +1,705 @@
-.hero {
-  position: relative;
-  min-height: 720px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba(22, 24, 24, .96) 0%,
-      rgba(32, 31, 28, .87) 27%,
-      rgba(45, 39, 33, .55) 53%,
-      rgba(23, 23, 21, .22) 100%
-    ),
-    linear-gradient(
-      0deg,
-      rgba(20, 21, 20, .50),
-      rgba(20, 21, 20, .05)
-    ),
-    url("957AF63B-5734-4209-8A7E-3C91779629FD.PNG");
+<title>S&A Transporte GmbH | Zuverlässig in Bewegung</title>
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+:root {
+    --gold: #c9a665;
+    --gold-light: #e0c58d;
+    --dark: #191a19;
+    --brown: #393129;
+    --white: #f4f0e8;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+/* ===== GŁÓWNA SEKCJA ===== */
+
+.hero {
+    position: relative;
+    min-height: 720px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(22,24,24,.96) 0%,
+            rgba(32,31,28,.88) 28%,
+            rgba(45,39,33,.56) 53%,
+            rgba(23,23,21,.22) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(20,21,20,.48),
+            rgba(20,21,20,.05)
+        ),
+        url("957AF63B-5734-4209-8A7E-3C91779629FD.PNG");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 72% 45%,
+            rgba(216,174,102,.17),
+            transparent 31%
+        );
+}
+
+/* ===== MENU ===== */
+
+.header {
+    position: relative;
+    z-index: 10;
+    height: 94px;
+
+    display: flex;
+    align-items: center;
+
+    background: rgba(20,22,21,.28);
+    border-bottom: 1px solid rgba(255,255,255,.13);
+    backdrop-filter: blur(4px);
+}
+
+.header-inner {
+    width: min(1380px, calc(100% - 80px));
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ===== LOGO ===== */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    text-decoration: none;
+    color: white;
+}
+
+.logo-mark {
+    position: relative;
+    width: 54px;
+    height: 44px;
+}
+
+.logo-s {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    font-size: 40px;
+    line-height: 44px;
+    font-weight: 900;
+    font-style: italic;
+
+    color: #e0c04e;
+
+    text-shadow:
+        1px 1px 0 #222,
+        2px 2px 0 rgba(180,50,40,.55),
+        0 4px 12px rgba(0,0,0,.35);
+}
+
+.logo-amp {
+    position: absolute;
+    left: 26px;
+    top: 8px;
+
+    font-size: 25px;
+    font-weight: 900;
+    font-style: italic;
+
+    color: #3974a5;
+
+    text-shadow:
+        1px 1px 0 #111,
+        2px 2px 0 rgba(190,50,40,.5);
+}
+
+.logo-text {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    text-shadow: 0 2px 8px rgba(0,0,0,.5);
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.navigation a {
+    position: relative;
+
+    color: rgba(255,255,255,.82);
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .7px;
+
+    transition: .25s;
+}
+
+.navigation a:hover,
+.navigation a.active {
+    color: var(--gold-light);
+}
+
+.navigation a.active::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -14px;
+
+    height: 1px;
+    background: var(--gold);
+}
+
+.language {
+    padding-left: 22px;
+    border-left: 1px solid rgba(255,255,255,.2);
+
+    font-size: 12px;
+    letter-spacing: 1px;
+
+    color: rgba(255,255,255,.55);
+}
+
+.language strong {
+    color: var(--gold-light);
+}
+
+/* ===== TEKST GŁÓWNY ===== */
+
+.hero-content {
+    position: relative;
+    z-index: 4;
+
+    flex: 1;
+
+    width: min(1380px, calc(100% - 80px));
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-copy {
+    width: 570px;
+    max-width: 54%;
+
+    padding: 65px 0 100px;
+}
+
+.small-title {
+    margin-bottom: 25px;
+
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin-bottom: 27px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(54px, 5vw, 78px);
+    line-height: .98;
+    font-weight: 400;
+    letter-spacing: -2px;
+
+    color: #f2eee6;
+
+    text-shadow: 0 4px 25px rgba(0,0,0,.3);
+}
+
+.hero h1 span {
+    display: block;
+
+    color: var(--gold-light);
+    font-style: italic;
+}
+
+.hero-description {
+    width: 470px;
+    max-width: 100%;
+
+    color: rgba(245,241,233,.72);
+
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+/* ===== DOLNY PASEK ===== */
+
+.info-section {
+    position: relative;
+    z-index: 5;
+
+    background:
+        linear-gradient(
+            90deg,
+            #252521 0%,
+            #302b26 55%,
+            #40362d 100%
+        );
+
+    border-top: 1px solid rgba(205,169,101,.3);
+}
+
+.info-inner {
+    width: min(1380px, calc(100% - 80px));
+    min-height: 178px;
+
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1.18fr;
+}
+
+.feature {
+    padding: 39px 28px;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    border-right: 1px solid rgba(255,255,255,.09);
+}
+
+.feature:first-child {
+    padding-left: 0;
+}
+
+.icon {
+    width: 46px;
+
+    color: var(--gold-light);
+
+    font-size: 30px;
+    font-family: Georgia, serif;
+
+    text-align: center;
+}
+
+.feature h3 {
+    margin-bottom: 7px;
+
+    color: #f1ede5;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .3px;
+}
+
+.feature p {
+    color: rgba(255,255,255,.48);
+
+    font-size: 11px;
+    line-height: 1.65;
+}
+
+/* ===== FIRMA + EUROPA ===== */
+
+.company {
+    position: relative;
+    overflow: hidden;
+
+    padding: 30px 0 27px 40px;
+
+    display: flex;
+    align-items: flex-end;
+}
+
+.company-data {
+    position: relative;
+    z-index: 3;
+}
+
+.company-data strong {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #f1ede5;
+
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.company-data span {
+    display: block;
+
+    color: rgba(255,255,255,.46);
+
+    font-size: 10px;
+    line-height: 1.7;
+    letter-spacing: .5px;
+}
+
+.europe {
+    position: absolute;
+
+    width: 250px;
+    height: 160px;
+
+    right: -10px;
+    top: 7px;
+
+    opacity: .52;
+}
+
+.europe svg {
+    width: 100%;
+    height: 100%;
+}
+
+.europe path {
+    fill: none;
+
+    stroke: rgba(220,184,113,.64);
+    stroke-width: 1.2;
+}
+
+.europe .route {
+    stroke: rgba(222,185,112,.43);
+    stroke-width: .8;
+    stroke-dasharray: 3 4;
+}
+
+.europe circle {
+    fill: #dfbb73;
+}
+
+/* ===== TELEFON ===== */
+
+@media (max-width: 900px) {
+
+    .header-inner,
+    .hero-content,
+    .info-inner {
+        width: 92%;
+    }
+
+    .navigation {
+        gap: 18px;
+    }
+
+    .navigation a:nth-child(3),
+    .navigation a:nth-child(4) {
+        display: none;
+    }
+
+    .hero {
+        background-position: 63% center;
+    }
+
+    .hero-copy {
+        max-width: 68%;
+    }
+
+    .info-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .header {
+        height: 80px;
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .hero {
+        min-height: 650px;
+        background-position: 66% center;
+    }
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(18,20,19,.94),
+                rgba(18,20,19,.66) 70%,
+                rgba(18,20,19,.25)
+            );
+    }
+
+    .hero-content {
+        width: 90%;
+    }
+
+    .hero-copy {
+        position: relative;
+        z-index: 3;
+
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .hero-description {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    .info-inner {
+        width: 90%;
+        grid-template-columns: 1fr;
+    }
+
+    .feature,
+    .feature:first-child {
+        padding: 28px 0;
+
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,.09);
+    }
+
+    .company {
+        min-height: 180px;
+        padding: 35px 0;
+    }
+
+    .europe {
+        right: -40px;
+        opacity: .35;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main>
+
+<section class="hero" id="start">
+
+    <header class="header">
+
+        <div class="header-inner">
+
+            <a href="#start" class="logo">
+
+                <div class="logo-mark">
+                    <span class="logo-s">S</span>
+                    <span class="logo-amp">&amp;</span>
+                </div>
+
+                <span class="logo-text">S&amp;A Transporte</span>
+
+            </a>
+
+            <nav class="navigation">
+
+                <a href="#start" class="active">Start</a>
+                <a href="#leistungen">Leistungen</a>
+                <a href="#flotte">Flotte</a>
+                <a href="#ueber-uns">Über uns</a>
+                <a href="#kontakt">Kontakt</a>
+
+                <div class="language">
+                    <strong>DE</strong> &nbsp;|&nbsp; PL
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <div class="hero-content">
+
+        <div class="hero-copy">
+
+            <div class="small-title">
+                Internationale Transporte
+            </div>
+
+            <h1>
+                Zuverlässig
+                <span>in Bewegung.</span>
+            </h1>
+
+            <p class="hero-description">
+                Ihr Partner für professionelle Transportlösungen
+                in ganz Europa. Sicher, pünktlich und persönlich.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="info-section" id="leistungen">
+
+    <div class="info-inner">
+
+        <div class="feature">
+
+            <div class="icon">◎</div>
+
+            <div>
+                <h3>Europaweite Transporte</h3>
+                <p>
+                    Zuverlässige Verbindungen<br>
+                    in ganz Europa
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="icon">◇</div>
+
+            <div>
+                <h3>Sichere Abwicklung</h3>
+                <p>
+                    Ihre Fracht in<br>
+                    erfahrenen Händen
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="icon">♧</div>
+
+            <div>
+                <h3>Zuverlässige Partnerschaft</h3>
+                <p>
+                    Persönlich. Direkt.<br>
+                    Verlässlich.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="company" id="kontakt">
+
+            <div class="company-data">
+
+                <strong>S&amp;A Transporte GmbH</strong>
+
+                <span>
+                    Berliner Allee 38<br>
+                    30855 Langenhagen
+                </span>
+
+            </div>
+
+
+            <div class="europe">
+
+                <svg viewBox="0 0 300 190">
+
+                    <path d="
+                    M67 41
+                    L82 30 L102 34 L112 25 L132 31
+                    L145 23 L160 29 L173 26 L185 37
+                    L205 40 L214 52 L229 58 L225 72
+                    L238 82 L227 94 L233 108 L219 115
+                    L210 130 L192 129 L181 144 L164 139
+                    L153 151 L141 143 L130 153 L117 145
+                    L102 150 L94 138 L80 136 L74 122
+                    L59 116 L61 101 L48 92 L57 80
+                    L50 66 L62 58 Z
+                    "/>
+
+                    <path
+                    class="route"
+                    d="M108 55 C125 66,139 73,153 85 C169 98,182 105,203 111"
+                    />
+
+                    <path
+                    class="route"
+                    d="M93 112 C114 101,129 94,153 85 C175 75,191 69,215 68"
+                    />
+
+                    <path
+                    class="route"
+                    d="M153 85 C156 105,160 120,169 138"
+                    />
+
+                    <circle cx="153" cy="85" r="3.6"/>
+                    <circle cx="108" cy="55" r="2.3"/>
+                    <circle cx="93" cy="112" r="2.3"/>
+                    <circle cx="203" cy="111" r="2.3"/>
+                    <circle cx="215" cy="68" r="2.3"/>
+                    <circle cx="169" cy="138" r="2.3"/>
+
+                </svg>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+</body>
+</html>
