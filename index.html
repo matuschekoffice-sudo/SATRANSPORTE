@@ -1,210 +1,26 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S&A Transporte</title>
+.hero {
+  position: relative;
+  min-height: 720px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  background:
+    linear-gradient(
+      90deg,
+      rgba(22, 24, 24, .96) 0%,
+      rgba(32, 31, 28, .87) 27%,
+      rgba(45, 39, 33, .55) 53%,
+      rgba(23, 23, 21, .22) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(20, 21, 20, .50),
+      rgba(20, 21, 20, .05)
+    ),
+    url("957AF63B-5734-4209-8A7E-3C91779629FD.PNG");
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: #222;
-      background: #fff;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #fff;
-      padding: 18px 8%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #ddd;
-    }
-
-    header img {
-      max-height: 80px;
-      width: auto;
-    }
-
-    nav a {
-      color: #222;
-      text-decoration: none;
-      margin-left: 25px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #b00000;
-    }
-
-    .hero {
-      min-height: 650px;
-      background-image:
-        linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
-        url("957AF63B-5734-4209-8A7E-3C91779629FD.PNG");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      padding: 60px 8%;
-    }
-
-    .hero-content {
-      max-width: 700px;
-      color: white;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
-    }
-
-    .hero h1 {
-      font-size: 52px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 24px;
-    }
-
-    section {
-      padding: 70px 8%;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    h2 {
-      font-size: 34px;
-      margin-bottom: 25px;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
-    }
-
-    .service {
-      padding: 30px;
-      background: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .service h3 {
-      margin-bottom: 12px;
-    }
-
-    .contact {
-      background: #222;
-      color: white;
-      max-width: none;
-    }
-
-    .contact-inner {
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px;
-      background: #111;
-      color: #ccc;
-    }
-
-    @media (max-width: 700px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      nav a {
-        margin: 0 8px;
-      }
-
-      .hero {
-        min-height: 500px;
-      }
-
-      .hero h1 {
-        font-size: 38px;
-      }
-
-      .hero p {
-        font-size: 20px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <img src="logo.PNG" alt="S&A Transporte Logo">
-
-    <nav>
-      <a href="#start">Start</a>
-      <a href="#unternehmen">Unternehmen</a>
-      <a href="#leistungen">Leistungen</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero" id="start">
-      <div class="hero-content">
-        <h1>S&A Transporte</h1>
-        <p>Zuverlässig. Flexibel. Europaweit.</p>
-      </div>
-    </section>
-
-    <section id="unternehmen">
-      <h2>Über uns</h2>
-      <p>
-        S&A Transporte steht für zuverlässige und flexible Transportlösungen.
-        Wir organisieren und realisieren Transporte mit persönlicher Betreuung,
-        direkter Kommunikation und einem hohen Anspruch an Zuverlässigkeit.
-      </p>
-    </section>
-
-    <section id="leistungen">
-      <h2>Unsere Leistungen</h2>
-
-      <div class="services">
-        <div class="service">
-          <h3>Transport</h3>
-          <p>Zuverlässige Transportlösungen für Ihre Waren und Güter.</p>
-        </div>
-
-        <div class="service">
-          <h3>Disposition</h3>
-          <p>Professionelle Planung und Koordination Ihrer Transporte.</p>
-        </div>
-
-        <div class="service">
-          <h3>Europaweite Transporte</h3>
-          <p>Flexible Transportlösungen innerhalb Deutschlands und Europas.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="kontakt">
-      <div class="contact-inner">
-        <h2>Kontakt</h2>
-        <p>S&A Transporte</p>
-        <p>Wir freuen uns auf Ihre Anfrage.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2026 S&A Transporte
-  </footer>
-
-</body>
-</html>
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
