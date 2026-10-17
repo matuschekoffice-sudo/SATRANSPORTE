@@ -6,831 +6,1215 @@
 
 <title>S&A Transporte GmbH | Zuverlässig in Bewegung</title>
 
+<meta name="description"
+content="S&A Transporte GmbH – zuverlässige und persönliche Transportlösungen in Deutschland und Europa.">
+
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-:root{
-    --gold:#d4a650;
-    --gold-light:#e5bd72;
-    --dark:#111312;
-    --brown:#211b16;
-    --white:#f5f1e9;
-    --muted:#c9c2b8;
+:root {
+    --dark: #171613;
+    --dark-brown: #211b16;
+    --brown: #30261d;
+    --gold: #c79a50;
+    --gold-light: #dfba78;
+    --cream: #eee8df;
+    --white: #f7f3ec;
+    --muted: rgba(255,255,255,.57);
 }
 
-html,body{
-    width:100%;
-    min-height:100%;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#111312;
-    color:var(--white);
-    overflow-x:hidden;
+body {
+    margin: 0;
+    background: var(--dark);
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 
-/* =========================
-   GŁÓWNA STRONA
-========================= */
 
-.page{
-    min-height:100vh;
-    background:
-        radial-gradient(circle at 75% 35%,
-        rgba(190,120,40,.18),
-        transparent 35%),
-        linear-gradient(135deg,#151716 0%,#211c17 55%,#171513 100%);
-}
-
-/* =========================
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
-.hero{
-    position:relative;
-    height:72vh;
-    min-height:610px;
-    max-height:780px;
-    overflow:hidden;
+.hero {
+    position: relative;
+    min-height: 690px;
+    height: 76vh;
+    max-height: 790px;
+    overflow: hidden;
+
     background:
         linear-gradient(
             90deg,
-            rgba(12,14,13,.97) 0%,
-            rgba(17,17,15,.91) 25%,
-            rgba(24,20,17,.56) 48%,
-            rgba(20,17,14,.10) 75%
+            rgba(18,18,16,.97) 0%,
+            rgba(22,20,17,.94) 23%,
+            rgba(31,25,20,.72) 43%,
+            rgba(32,24,17,.26) 64%,
+            rgba(21,18,15,.10) 100%
         ),
         linear-gradient(
             0deg,
-            rgba(12,12,11,.55) 0%,
-            rgba(12,12,11,.04) 45%
+            rgba(16,15,13,.55) 0%,
+            rgba(16,15,13,.04) 48%
         ),
         url("957AF63B-5734-4209-8A7E-3C91779629FD.PNG");
 
-    background-size:cover;
-    background-repeat:no-repeat;
-
-    /*
-       Najważniejsza zmiana:
-       pokazujemy znacznie więcej całego zestawu.
-    */
-    background-position:67% center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
-/* ciepłe światło */
-.hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    pointer-events:none;
+
+/* ciepła poświata */
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
     background:
         radial-gradient(
-            circle at 82% 38%,
-            rgba(234,167,75,.18),
-            transparent 27%
+            circle at 75% 42%,
+            rgba(211,145,63,.20),
+            transparent 29%
         );
 }
 
-/* =========================
+
+/* =====================================================
    HEADER
-========================= */
+===================================================== */
 
-.header{
-    position:relative;
-    z-index:10;
-    height:90px;
-    border-bottom:1px solid rgba(255,255,255,.11);
-    background:linear-gradient(
-        90deg,
-        rgba(15,17,16,.72),
-        rgba(18,17,15,.40)
-    );
+.header {
+    position: relative;
+    z-index: 20;
+
+    height: 92px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.12);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(17,18,17,.72),
+            rgba(24,20,17,.38)
+        );
+
+    backdrop-filter: blur(3px);
 }
 
-.header-inner{
-    width:min(1280px,calc(100% - 90px));
-    height:100%;
-    margin:auto;
+.header-inner {
+    width: min(1320px, calc(100% - 90px));
+    height: 100%;
+    margin: auto;
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-/* =========================
-   PRAWDZIWE LOGO
-========================= */
 
-.logo{
-    display:flex;
-    align-items:center;
-    text-decoration:none;
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    text-decoration: none;
 }
 
-.logo img{
-    display:block;
-    width:245px;
-    max-height:62px;
-    object-fit:contain;
+
+/* subtelne logo zamiast wielkiej tablicy */
+
+.logo-symbol {
+    position: relative;
+
+    width: 52px;
+    height: 42px;
 
     filter:
-        drop-shadow(0 4px 7px rgba(0,0,0,.45))
-        drop-shadow(0 0 11px rgba(213,161,67,.14));
+        drop-shadow(0 4px 6px rgba(0,0,0,.35));
 }
 
-/* =========================
+.logo-s {
+    position: absolute;
+    left: 0;
+    top: -2px;
+
+    font-size: 39px;
+    line-height: 42px;
+
+    font-weight: 900;
+    font-style: italic;
+
+    color: #dfbf51;
+}
+
+.logo-amp {
+    position: absolute;
+
+    left: 25px;
+    top: 7px;
+
+    font-size: 25px;
+
+    font-weight: 900;
+    font-style: italic;
+
+    color: #3e75a3;
+}
+
+.logo-name {
+    color: #f2eee7;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    letter-spacing: 2.2px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.45);
+}
+
+
+/* =====================================================
    MENU
-========================= */
+===================================================== */
 
-.nav{
-    display:flex;
-    align-items:center;
-    gap:35px;
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 35px;
 }
 
-.nav a{
-    position:relative;
-    color:rgba(255,255,255,.78);
-    text-decoration:none;
+.navigation a {
+    position: relative;
 
-    font-size:13px;
-    font-weight:400;
-    letter-spacing:.3px;
+    color: rgba(255,255,255,.78);
 
-    transition:.25s ease;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    letter-spacing: .35px;
+
+    transition: color .25s ease;
 }
 
-.nav a:hover,
-.nav a.active{
-    color:var(--gold-light);
+.navigation a:hover,
+.navigation a.active {
+    color: var(--gold-light);
 }
 
-.nav a.active::after{
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:-15px;
+.navigation a.active::after {
+    content: "";
 
-    height:2px;
-    background:var(--gold);
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -15px;
+
+    height: 1px;
+
+    background: var(--gold);
 }
 
-.language{
-    margin-left:5px;
-    padding-left:22px;
+.language {
+    margin-left: 5px;
+    padding-left: 23px;
 
-    border-left:1px solid rgba(255,255,255,.19);
+    border-left:
+        1px solid rgba(255,255,255,.18);
 
-    color:rgba(255,255,255,.58);
-    font-size:12px;
+    color: rgba(255,255,255,.48);
+
+    font-size: 12px;
 }
 
-.language strong{
-    color:var(--gold-light);
-    font-weight:500;
+.language strong {
+    color: var(--gold-light);
+    font-weight: 500;
 }
 
-/* =========================
-   TEKST HERO
-========================= */
 
-.hero-inner{
-    position:relative;
-    z-index:5;
+/* =====================================================
+   HERO CONTENT
+===================================================== */
 
-    width:min(1280px,calc(100% - 90px));
-    height:calc(100% - 90px);
-    margin:auto;
+.hero-inner {
+    position: relative;
+    z-index: 5;
 
-    display:flex;
-    align-items:center;
+    width: min(1320px, calc(100% - 90px));
+    height: calc(100% - 92px);
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
 }
 
-.hero-copy{
-    width:500px;
-    max-width:43%;
-    margin-top:-15px;
+.hero-copy {
+    width: 510px;
+    max-width: 43%;
+
+    margin-top: -20px;
 }
 
-.eyebrow{
-    display:flex;
-    align-items:center;
-    gap:18px;
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 18px;
 
-    margin-bottom:24px;
+    margin-bottom: 25px;
 
-    color:#d7c8ae;
-    font-size:11px;
-    letter-spacing:5px;
-    text-transform:uppercase;
+    color: #d5c3a8;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    letter-spacing: 4.7px;
+
+    text-transform: uppercase;
 }
 
-.eyebrow::after{
-    content:"";
-    width:50px;
-    height:1px;
-    background:var(--gold);
+.eyebrow::after {
+    content: "";
+
+    width: 48px;
+    height: 1px;
+
+    background: var(--gold);
 }
 
-.hero h1{
-    font-size:clamp(52px,4.8vw,75px);
-    line-height:.96;
-    letter-spacing:-2px;
-    font-weight:500;
+.hero h1 {
+    margin: 0;
 
-    color:#f2eee7;
+    color: #f1ece4;
 
-    text-shadow:0 4px 25px rgba(0,0,0,.35);
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(55px, 5vw, 77px);
+
+    font-weight: 400;
+
+    line-height: .96;
+
+    letter-spacing: -2px;
+
+    text-shadow:
+        0 5px 25px rgba(0,0,0,.34);
 }
 
-.hero h1 span{
-    display:block;
-    color:#e1b66c;
-    font-weight:300;
+.hero h1 span {
+    display: block;
+
+    color: var(--gold-light);
+
+    font-style: italic;
+    font-weight: 400;
 }
 
-.description{
-    margin-top:24px;
-    width:380px;
-    max-width:100%;
+.hero-description {
+    width: 400px;
+    max-width: 100%;
 
-    font-size:16px;
-    line-height:1.55;
+    margin-top: 27px;
 
-    color:rgba(245,240,231,.82);
+    color: rgba(244,239,230,.76);
 
-    text-shadow:0 2px 8px rgba(0,0,0,.5);
+    font-size: 15px;
+
+    line-height: 1.65;
+
+    letter-spacing: .15px;
+
+    text-shadow:
+        0 2px 7px rgba(0,0,0,.45);
 }
 
-/* =========================
+
+/* =====================================================
    DOLNY PANEL
-========================= */
+===================================================== */
 
-.bottom{
-    position:relative;
-    min-height:235px;
-    overflow:hidden;
+.info {
+    position: relative;
+
+    min-height: 215px;
+
+    overflow: hidden;
+
+    border-top:
+        1px solid rgba(205,158,79,.30);
 
     background:
         linear-gradient(
             105deg,
-            #171612 0%,
-            #211b15 60%,
-            #2c2117 100%
+            #181714 0%,
+            #211b16 58%,
+            #32251a 100%
         );
-
-    border-top:1px solid rgba(213,168,83,.26);
 }
 
-.bottom-inner{
-    position:relative;
-    z-index:4;
+.info-inner {
+    position: relative;
+    z-index: 3;
 
-    width:min(1280px,calc(100% - 90px));
-    margin:auto;
+    width: min(1320px, calc(100% - 90px));
+
+    margin: auto;
 }
 
-/* =========================
-   TRZY ELEMENTY
-========================= */
 
-.features{
-    width:72%;
-    min-height:130px;
+/* =====================================================
+   TRZY BLOKI
+===================================================== */
 
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
+.features {
+    width: 72%;
 
-    border-bottom:1px solid rgba(255,255,255,.08);
+    min-height: 133px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
 }
 
-.feature{
-    position:relative;
+.feature {
+    position: relative;
 
-    display:flex;
-    align-items:center;
-    gap:20px;
+    display: flex;
+    align-items: center;
 
-    padding:30px 35px 30px 0;
+    gap: 20px;
+
+    padding: 30px 35px 30px 0;
 }
 
-.feature:not(:last-child){
-    margin-right:35px;
-    border-right:1px solid rgba(255,255,255,.13);
+.feature:not(:last-child) {
+    margin-right: 34px;
+
+    border-right:
+        1px solid rgba(255,255,255,.11);
 }
 
-.icon{
-    flex:0 0 48px;
-    width:48px;
-    height:48px;
+.feature-icon {
+    width: 45px;
+    height: 45px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    flex: 0 0 45px;
 
-    color:var(--gold-light);
+    color: var(--gold-light);
 }
 
-/* ikony SVG */
-.icon svg{
-    width:42px;
-    height:42px;
+.feature-icon svg {
+    width: 100%;
+    height: 100%;
 
-    fill:none;
-    stroke:currentColor;
-    stroke-width:1.6;
-    stroke-linecap:round;
-    stroke-linejoin:round;
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.5;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
-.feature h3{
-    margin-bottom:5px;
+.feature h3 {
+    color: #f1ece4;
 
-    font-size:13px;
-    line-height:1.25;
-    font-weight:500;
+    font-size: 13px;
 
-    color:#f3eee6;
+    line-height: 1.3;
+
+    font-weight: 500;
 }
 
-.feature p{
-    font-size:10px;
-    line-height:1.5;
-    color:rgba(255,255,255,.46);
+.gold-line {
+    width: 29px;
+    height: 2px;
+
+    margin-top: 12px;
+
+    background: var(--gold);
 }
 
-.gold-line{
-    width:29px;
-    height:2px;
 
-    margin-top:12px;
+/* =====================================================
+   FIRMA
+===================================================== */
 
-    background:var(--gold);
+.company {
+    padding-top: 17px;
 }
 
-/* =========================
-   DANE FIRMY
-========================= */
+.company strong {
+    display: block;
 
-.company{
-    padding-top:16px;
+    margin-bottom: 5px;
+
+    color: var(--gold-light);
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    letter-spacing: .4px;
 }
 
-.company strong{
-    display:block;
+.company span {
+    color:
+        rgba(255,255,255,.52);
 
-    margin-bottom:6px;
+    font-size: 10px;
 
-    color:var(--gold-light);
-    font-size:11px;
-    font-weight:500;
+    letter-spacing: .2px;
 }
 
-.company span{
-    color:rgba(255,255,255,.55);
-    font-size:10px;
-    letter-spacing:.15px;
+
+/* =====================================================
+   MAPA EUROPY
+===================================================== */
+
+.europe {
+    position: absolute;
+
+    right: -25px;
+    bottom: -68px;
+
+    width: 450px;
+    height: 260px;
+
+    opacity: .60;
+
+    transform: rotate(-3deg);
 }
 
-/* =========================
-   EUROPA
-========================= */
+.europe::before {
+    content: "";
 
-.europe{
-    position:absolute;
+    position: absolute;
 
-    right:-40px;
-    bottom:-62px;
-
-    width:470px;
-    height:260px;
-
-    opacity:.66;
-
-    transform:rotate(-3deg);
-}
-
-.europe::before{
-    content:"";
-    position:absolute;
-
-    inset:-50px;
+    inset: -45px;
 
     background:
         radial-gradient(
             ellipse at center,
-            rgba(214,153,63,.18),
+            rgba(205,139,54,.17),
             transparent 62%
         );
-
-    pointer-events:none;
 }
 
-.europe svg{
-    position:relative;
-    width:100%;
-    height:100%;
+.europe svg {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
 }
 
-.map-outline{
-    fill:rgba(125,91,49,.09);
+.map-outline {
+    fill:
+        rgba(118,83,43,.07);
 
-    stroke:rgba(218,169,91,.58);
-    stroke-width:1;
+    stroke:
+        rgba(218,169,91,.60);
+
+    stroke-width: 1;
 }
 
-.map-route{
-    fill:none;
+.map-route {
+    fill: none;
 
-    stroke:rgba(228,179,94,.34);
-    stroke-width:.8;
-    stroke-dasharray:3 5;
+    stroke:
+        rgba(228,178,92,.34);
+
+    stroke-width: .8;
+
+    stroke-dasharray:
+        3 5;
 }
 
-.map-dot{
-    fill:#e4ad50;
-    filter:drop-shadow(0 0 5px #e6a944);
+.map-dot {
+    fill: #e2ac51;
+
+    filter:
+        drop-shadow(
+            0 0 5px #e5a842
+        );
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
 
-@media(max-width:1050px){
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1050px) {
 
     .header-inner,
     .hero-inner,
-    .bottom-inner{
-        width:92%;
+    .info-inner {
+        width: 92%;
     }
 
-    .logo img{
-        width:205px;
+    .navigation {
+        gap: 20px;
     }
 
-    .nav{
-        gap:19px;
+    .hero {
+        background-position:
+            61% center;
     }
 
-    .hero{
-        background-position:62% center;
+    .hero-copy {
+        max-width: 50%;
     }
 
-    .hero-copy{
-        max-width:48%;
-    }
-
-    .features{
-        width:78%;
+    .features {
+        width: 78%;
     }
 }
 
-@media(max-width:800px){
 
-    .header{
-        height:78px;
+/* =====================================================
+   TELEFON
+===================================================== */
+
+@media (max-width: 760px) {
+
+    .header {
+        height: 78px;
     }
 
-    .logo img{
-        width:180px;
+    .header-inner {
+        width: 90%;
     }
 
-    .nav a:nth-child(2),
-    .nav a:nth-child(3),
-    .nav a:nth-child(4){
-        display:none;
+    .logo-name {
+        font-size: 14px;
     }
 
-    .hero{
-        height:auto;
-        min-height:650px;
-
-        background-position:65% center;
+    .navigation {
+        display: none;
     }
 
-    .hero-inner{
-        height:572px;
+    .hero {
+        height: auto;
+
+        min-height: 650px;
+
+        background-position:
+            64% center;
     }
 
-    .hero-copy{
-        max-width:65%;
-    }
+    .hero::before {
+        content: "";
 
-    .features{
-        width:100%;
-    }
+        position: absolute;
 
-    .europe{
-        opacity:.35;
-    }
-}
-
-@media(max-width:600px){
-
-    .header-inner,
-    .hero-inner,
-    .bottom-inner{
-        width:90%;
-    }
-
-    .logo img{
-        width:165px;
-    }
-
-    .nav{
-        display:none;
-    }
-
-    .hero{
-        min-height:630px;
-
-        background-position:67% center;
-    }
-
-    .hero::before{
-        content:"";
-        position:absolute;
-        inset:0;
+        inset: 0;
 
         background:
             linear-gradient(
                 90deg,
-                rgba(12,14,13,.96),
-                rgba(15,15,13,.72) 65%,
-                rgba(15,15,13,.25)
+                rgba(14,15,14,.95),
+                rgba(18,17,15,.68) 67%,
+                rgba(18,17,15,.24)
             );
     }
 
-    .hero-inner{
-        height:552px;
+    .hero-inner {
+        position: relative;
+
+        z-index: 3;
+
+        width: 90%;
+
+        height: 572px;
     }
 
-    .hero-copy{
-        position:relative;
-        z-index:3;
-
-        max-width:100%;
-        width:100%;
+    .hero-copy {
+        width: 100%;
+        max-width: 100%;
     }
 
-    .hero h1{
-        font-size:50px;
+    .hero h1 {
+        font-size: 50px;
     }
 
-    .description{
-        width:320px;
-        font-size:14px;
+    .hero-description {
+        width: 310px;
+
+        font-size: 14px;
     }
 
-    .features{
-        grid-template-columns:1fr;
+    .info-inner {
+        width: 90%;
     }
 
-    .feature{
-        padding:24px 0;
+    .features {
+        width: 100%;
+
+        grid-template-columns: 1fr;
     }
 
-    .feature:not(:last-child){
-        margin:0;
-        border-right:0;
-        border-bottom:1px solid rgba(255,255,255,.09);
+    .feature {
+        padding: 24px 0;
     }
 
-    .company{
-        padding:25px 0 90px;
+    .feature:not(:last-child) {
+        margin-right: 0;
+
+        border-right: 0;
+
+        border-bottom:
+            1px solid rgba(255,255,255,.08);
     }
 
-    .europe{
-        width:350px;
-        right:-100px;
-        bottom:-45px;
+    .company {
+        padding:
+            25px 0 95px;
+    }
+
+    .europe {
+        width: 340px;
+
+        right: -100px;
+
+        bottom: -48px;
+
+        opacity: .38;
     }
 }
 
 </style>
 </head>
 
+
 <body>
 
-<div class="page">
 
-<!-- ================= HERO ================= -->
+<!-- ===================================================
+     GŁÓWNA SEKCJA
+=================================================== -->
 
 <section class="hero" id="start">
+
 
 <header class="header">
 
 <div class="header-inner">
 
-<a class="logo" href="#start">
-    <img src="logo.PNG" alt="S&A Transporte">
+
+<!-- LOGO -->
+
+<a href="#start"
+   class="logo"
+   aria-label="S&A Transporte">
+
+<div class="logo-symbol"
+     aria-hidden="true">
+
+<span class="logo-s">
+S
+</span>
+
+<span class="logo-amp">
+&amp;
+</span>
+
+</div>
+
+<span class="logo-name">
+S&amp;A Transporte
+</span>
+
 </a>
 
-<nav class="nav">
 
-<a href="#start" class="active">Start</a>
-<a href="#leistungen">Leistungen</a>
-<a href="#flotte">Flotte</a>
-<a href="#ueber-uns">Über uns</a>
-<a href="#kontakt">Kontakt</a>
+<!-- MENU -->
+
+<nav class="navigation"
+     aria-label="Hauptnavigation">
+
+<a href="#start"
+   class="active">
+Start
+</a>
+
+<a href="#leistungen">
+Leistungen
+</a>
+
+<a href="#flotte">
+Flotte
+</a>
+
+<a href="#ueber-uns">
+Über uns
+</a>
+
+<a href="#kontakt">
+Kontakt
+</a>
 
 <div class="language">
-<strong>DE</strong>&nbsp;&nbsp;|&nbsp;&nbsp;PL
+
+<strong>DE</strong>
+&nbsp;|&nbsp;
+PL
+
 </div>
 
 </nav>
+
 
 </div>
 
 </header>
 
 
+<!-- HERO TEXT -->
+
 <div class="hero-inner">
 
 <div class="hero-copy">
+
 
 <div class="eyebrow">
 Internationale Transporte
 </div>
 
+
 <h1>
+
 Zuverlässig
-<span>in Bewegung.</span>
+
+<span>
+in Bewegung.
+</span>
+
 </h1>
 
-<p class="description">
-Ihr Partner für professionelle<br>
+
+<p class="hero-description">
+
+Ihr Partner für professionelle
 Transportlösungen in ganz Europa.
+Sicher, pünktlich und persönlich.
+
 </p>
 
+
 </div>
 
 </div>
+
 
 </section>
 
 
-<!-- ================= DOLNY PANEL ================= -->
 
-<section class="bottom" id="leistungen">
+<!-- ===================================================
+     DOLNY PANEL
+=================================================== -->
 
-<div class="bottom-inner">
+<section class="info"
+         id="leistungen">
+
+
+<div class="info-inner">
+
 
 <div class="features">
 
-<!-- EUROPA -->
+
+<!-- EUROPAWEITE TRANSPORTE -->
 
 <div class="feature">
 
-<div class="icon">
 
-<svg viewBox="0 0 48 48">
-<circle cx="24" cy="24" r="19"/>
+<div class="feature-icon">
+
+<svg viewBox="0 0 48 48"
+     aria-hidden="true">
+
+<circle cx="24"
+        cy="24"
+        r="19"/>
+
 <path d="M5 24h38"/>
-<path d="M24 5c6 6 9 12 9 19s-3 13-9 19"/>
-<path d="M24 5c-6 6-9 12-9 19s3 13 9 19"/>
-<path d="M9 14c8 4 22 4 30 0"/>
-<path d="M9 34c8-4 22-4 30 0"/>
+
+<path d="
+M24 5
+c6 6 9 12 9 19
+s-3 13-9 19
+"/>
+
+<path d="
+M24 5
+c-6 6-9 12-9 19
+s3 13 9 19
+"/>
+
+<path d="
+M9 14
+c8 4 22 4 30 0
+"/>
+
+<path d="
+M9 34
+c8-4 22-4 30 0
+"/>
+
 </svg>
 
 </div>
 
+
 <div>
 
-<h3>Europaweite<br>Transporte</h3>
+<h3>
+Europaweite<br>
+Transporte
+</h3>
 
 <div class="gold-line"></div>
 
 </div>
 
+
 </div>
 
 
-<!-- BEZPIECZEŃSTWO -->
+
+<!-- SICHERE ABWICKLUNG -->
 
 <div class="feature">
 
-<div class="icon">
 
-<svg viewBox="0 0 48 48">
-<path d="M24 4l15 6v12c0 10-6 17-15 22C15 39 9 32 9 22V10z"/>
-<path d="M17 24l5 5 10-11"/>
+<div class="feature-icon">
+
+<svg viewBox="0 0 48 48"
+     aria-hidden="true">
+
+<path d="
+M24 4
+l15 6
+v12
+c0 10-6 17-15 22
+C15 39 9 32 9 22
+V10z
+"/>
+
+<path d="
+M17 24
+l5 5
+10-11
+"/>
+
 </svg>
 
 </div>
 
+
 <div>
 
-<h3>Sichere<br>Abwicklung</h3>
+<h3>
+Sichere<br>
+Abwicklung
+</h3>
 
 <div class="gold-line"></div>
 
 </div>
 
+
 </div>
 
 
-<!-- PARTNERSTWO -->
+
+<!-- PARTNERSCHAFT -->
 
 <div class="feature">
 
-<div class="icon">
 
-<svg viewBox="0 0 48 48">
-<path d="M5 19l8-8 8 4"/>
-<path d="M43 19l-8-8-8 4"/>
-<path d="M15 29l9 9c2 2 5-1 3-3"/>
-<path d="M20 25l11 11c2 2 5-1 3-3"/>
-<path d="M24 21l13 11c2 2 5-1 3-3L27 17"/>
-<path d="M21 16l-5 5c-4 4-8-1-5-4l7-7c3-3 7-2 10 0"/>
+<div class="feature-icon">
+
+<svg viewBox="0 0 48 48"
+     aria-hidden="true">
+
+<path d="
+M5 19
+l8-8
+8 4
+"/>
+
+<path d="
+M43 19
+l-8-8
+-8 4
+"/>
+
+<path d="
+M15 29
+l9 9
+c2 2 5-1 3-3
+"/>
+
+<path d="
+M20 25
+l11 11
+c2 2 5-1 3-3
+"/>
+
+<path d="
+M24 21
+l13 11
+c2 2 5-1 3-3
+L27 17
+"/>
+
+<path d="
+M21 16
+l-5 5
+c-4 4-8-1-5-4
+l7-7
+c3-3 7-2 10 0
+"/>
+
 </svg>
 
 </div>
 
+
 <div>
 
-<h3>Zuverlässige<br>Partnerschaft</h3>
+<h3>
+Zuverlässige<br>
+Partnerschaft
+</h3>
 
 <div class="gold-line"></div>
 
 </div>
 
-</div>
 
 </div>
 
 
-<!-- DANE FIRMY -->
+</div>
 
-<div class="company" id="kontakt">
 
-<strong>S&amp;A Transporte GmbH</strong>
+
+<!-- ===================================================
+     DANE FIRMY
+=================================================== -->
+
+<div class="company"
+     id="kontakt">
+
+<strong>
+S&amp;A Transporte GmbH
+</strong>
 
 <span>
-Berliner Allee 38 &nbsp;&nbsp;|&nbsp;&nbsp;
-30855 Langenhagen &nbsp;&nbsp;|&nbsp;&nbsp;
+
+Berliner Allee 38
+&nbsp;&nbsp;|&nbsp;&nbsp;
+30855 Langenhagen
+&nbsp;&nbsp;|&nbsp;&nbsp;
 Deutschland
+
 </span>
 
 </div>
 
 
-<!-- MAPA EUROPY -->
 
-<div class="europe" aria-hidden="true">
+<!-- ===================================================
+     EUROPA
+=================================================== -->
+
+<div class="europe"
+     aria-hidden="true">
+
 
 <svg viewBox="0 0 500 280">
 
-<path class="map-outline"
+
+<path
+class="map-outline"
+
 d="
 M72 78
-L92 55 L122 60 L137 42 L163 50
-L184 36 L207 48 L231 43 L252 59
-L281 63 L294 79 L321 88 L315 108
-L337 122 L320 138 L330 158
-L310 168 L298 190 L272 188
-L255 210 L230 202 L215 222
-L198 211 L180 226 L163 213
-L141 220 L130 201 L108 198
-L100 177 L77 168 L80 146
-L60 133 L73 115 L62 96 Z
+L92 55
+L122 60
+L137 42
+L163 50
+L184 36
+L207 48
+L231 43
+L252 59
+L281 63
+L294 79
+L321 88
+L315 108
+L337 122
+L320 138
+L330 158
+L310 168
+L298 190
+L272 188
+L255 210
+L230 202
+L215 222
+L198 211
+L180 226
+L163 213
+L141 220
+L130 201
+L108 198
+L100 177
+L77 168
+L80 146
+L60 133
+L73 115
+L62 96
+Z
 "/>
 
-<path class="map-route"
-d="M112 92 C150 110 190 121 228 142 C270 164 306 169 350 162"/>
 
-<path class="map-route"
-d="M90 177 C133 154 179 145 228 142 C280 136 327 116 375 105"/>
+<path
+class="map-route"
 
-<path class="map-route"
-d="M228 142 C232 172 240 199 255 226"/>
+d="
+M112 92
+C150 110
+190 121
+228 142
+C270 164
+306 169
+350 162
+"/>
 
-<path class="map-route"
-d="M228 142 C196 126 169 105 148 79"/>
 
-<circle class="map-dot" cx="228" cy="142" r="4"/>
-<circle class="map-dot" cx="112" cy="92" r="2.8"/>
-<circle class="map-dot" cx="90" cy="177" r="2.8"/>
-<circle class="map-dot" cx="350" cy="162" r="2.8"/>
-<circle class="map-dot" cx="375" cy="105" r="2.8"/>
-<circle class="map-dot" cx="255" cy="226" r="2.8"/>
-<circle class="map-dot" cx="148" cy="79" r="2.8"/>
+<path
+class="map-route"
+
+d="
+M90 177
+C133 154
+179 145
+228 142
+C280 136
+327 116
+375 105
+"/>
+
+
+<path
+class="map-route"
+
+d="
+M228 142
+C232 172
+240 199
+255 226
+"/>
+
+
+<path
+class="map-route"
+
+d="
+M228 142
+C196 126
+169 105
+148 79
+"/>
+
+
+<circle
+class="map-dot"
+cx="228"
+cy="142"
+r="4"/>
+
+<circle
+class="map-dot"
+cx="112"
+cy="92"
+r="2.8"/>
+
+<circle
+class="map-dot"
+cx="90"
+cy="177"
+r="2.8"/>
+
+<circle
+class="map-dot"
+cx="350"
+cy="162"
+r="2.8"/>
+
+<circle
+class="map-dot"
+cx="375"
+cy="105"
+r="2.8"/>
+
+<circle
+class="map-dot"
+cx="255"
+cy="226"
+r="2.8"/>
+
+<circle
+class="map-dot"
+cx="148"
+cy="79"
+r="2.8"/>
+
 
 </svg>
 
+
 </div>
+
 
 </div>
 
 </section>
 
-</div>
 
 </body>
 </html>
