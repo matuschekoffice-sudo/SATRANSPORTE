@@ -14,10 +14,10 @@
 }
 
 :root {
-    --gold: #cda35c;
-    --gold-light: #e4c17d;
-    --dark: #111210;
-    --cream: #f3eee5;
+    --gold: #d4ad68;
+    --gold-light: #efd39a;
+    --dark: #11110f;
+    --cream: #f5f0e7;
 }
 
 html {
@@ -25,79 +25,93 @@ html {
 }
 
 body {
-    background: var(--dark);
+    margin: 0;
+    background: #11110f;
     color: var(--cream);
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
 }
 
-/* GŁÓWNA SEKCJA */
+/* =========================================
+   HERO – JEDNA SPÓJNA GRAFIKA
+   ciężarówka + droga + zachód słońca
+========================================= */
 
 .hero {
     position: relative;
-    min-height: 720px;
-    height: 78vh;
-    max-height: 850px;
+    min-height: 760px;
+    height: 82vh;
+    max-height: 900px;
     overflow: hidden;
-    background: #111310;
-}
-
-/* ZDJĘCIE CIĘŻARÓWKI */
-
-.truck-photo {
-    position: absolute;
-    z-index: 1;
-    top: 92px;
-    right: 0;
-    width: 72%;
-    height: calc(100% - 92px);
-    object-fit: contain;
-    object-position: right center;
-}
-
-.photo-shade {
-    position: absolute;
-    z-index: 2;
-    inset: 92px 0 0 0;
-    pointer-events: none;
 
     background:
         linear-gradient(
             90deg,
-            #111310 0%,
-            rgba(17,19,16,.98) 15%,
-            rgba(17,19,16,.82) 29%,
-            rgba(17,19,16,.40) 44%,
-            rgba(17,19,16,.08) 61%,
-            transparent 78%
+            rgba(10,11,9,.94) 0%,
+            rgba(10,11,9,.82) 24%,
+            rgba(10,11,9,.42) 43%,
+            rgba(10,11,9,.08) 64%,
+            rgba(10,11,9,.02) 100%
         ),
-        radial-gradient(
-            circle at 77% 44%,
-            rgba(224,155,65,.14),
-            transparent 31%
+        url("hero-sa.jpg");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* delikatne przyciemnienie dołu */
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.12) 0%,
+            transparent 45%,
+            rgba(9,9,8,.36) 100%
         );
 }
 
-/* HEADER */
+/* =========================================
+   HEADER
+========================================= */
 
 .header {
     position: relative;
     z-index: 20;
-    height: 92px;
-    border-bottom: 1px solid rgba(255,255,255,.12);
-    background: rgba(16,18,16,.91);
+
+    height: 104px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(10,11,9,.91),
+            rgba(10,11,9,.67)
+        );
+
+    border-bottom:
+        1px solid rgba(255,255,255,.11);
 }
 
 .header-inner {
-    width: min(1320px, calc(100% - 80px));
+    width: min(1420px, calc(100% - 90px));
     height: 100%;
     margin: auto;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-/* PRAWDZIWE LOGO */
+/* =========================================
+   PRAWDZIWE LOGO
+========================================= */
 
 .logo {
     display: flex;
@@ -107,24 +121,33 @@ body {
 
 .logo img {
     display: block;
-    max-height: 68px;
     width: auto;
+    height: 76px;
+    max-width: 290px;
     object-fit: contain;
 }
 
-/* MENU */
+/* =========================================
+   MENU
+========================================= */
 
 .nav {
     display: flex;
     align-items: center;
-    gap: 34px;
+    gap: 38px;
 }
 
 .nav a {
     position: relative;
-    color: rgba(255,255,255,.78);
+
+    color: rgba(255,255,255,.79);
     text-decoration: none;
+
     font-size: 13px;
+    font-weight: 400;
+    letter-spacing: .3px;
+
+    transition: color .2s ease;
 }
 
 .nav a:hover,
@@ -134,19 +157,26 @@ body {
 
 .nav a.active::after {
     content: "";
+
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -17px;
+    bottom: -21px;
+
     height: 1px;
+
     background: var(--gold);
 }
 
 .language {
-    margin-left: 5px;
-    padding-left: 22px;
-    border-left: 1px solid rgba(255,255,255,.20);
-    color: rgba(255,255,255,.50);
+    margin-left: 7px;
+    padding-left: 24px;
+
+    border-left:
+        1px solid rgba(255,255,255,.20);
+
+    color: rgba(255,255,255,.48);
+
     font-size: 12px;
 }
 
@@ -154,177 +184,265 @@ body {
     color: var(--gold-light);
 }
 
-/* TEKST */
+/* =========================================
+   TEKST HERO
+========================================= */
 
 .hero-inner {
     position: relative;
     z-index: 10;
-    width: min(1320px, calc(100% - 80px));
-    height: calc(100% - 92px);
+
+    width: min(1420px, calc(100% - 90px));
+    height: calc(100% - 104px);
+
     margin: auto;
+
     display: flex;
     align-items: center;
 }
 
 .hero-copy {
-    width: 510px;
-    max-width: 44%;
-    margin-top: -25px;
+    width: 560px;
+    max-width: 43%;
+
+    transform: translateY(-15px);
 }
 
 .eyebrow {
     display: flex;
     align-items: center;
-    gap: 17px;
-    margin-bottom: 25px;
-    color: #d8c5a5;
+    gap: 18px;
+
+    margin-bottom: 28px;
+
+    color: #d6c09c;
+
     font-size: 11px;
-    letter-spacing: 4.5px;
+    letter-spacing: 4.7px;
+
     text-transform: uppercase;
 }
 
 .eyebrow::after {
     content: "";
-    width: 48px;
+
+    width: 54px;
     height: 1px;
+
     background: var(--gold);
 }
 
 h1 {
-    color: #f2ede4;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(56px, 5vw, 78px);
+    color: #f6f1e8;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(62px, 5.2vw, 86px);
+
     font-weight: 400;
-    line-height: .96;
-    letter-spacing: -2px;
-    text-shadow: 0 5px 24px rgba(0,0,0,.38);
+
+    line-height: .94;
+
+    letter-spacing: -2.5px;
+
+    text-shadow:
+        0 6px 30px rgba(0,0,0,.48);
 }
 
 h1 span {
     display: block;
+
     color: var(--gold-light);
+
     font-style: italic;
 }
 
 .description {
-    width: 410px;
+    width: 440px;
     max-width: 100%;
-    margin-top: 28px;
-    color: rgba(246,241,232,.77);
+
+    margin-top: 31px;
+
+    color:
+        rgba(248,243,234,.78);
+
     font-size: 15px;
-    line-height: 1.7;
+    line-height: 1.75;
+
+    text-shadow:
+        0 2px 10px rgba(0,0,0,.55);
 }
 
-/* DOLNA SEKCJA */
+/* =========================================
+   DOLNY PANEL
+========================================= */
 
-.info {
+.bottom-panel {
     position: relative;
-    border-top: 1px solid rgba(207,163,87,.28);
+    z-index: 30;
+
+    min-height: 220px;
+
+    border-top:
+        1px solid rgba(215,174,101,.30);
+
     background:
         linear-gradient(
-            105deg,
-            #171713 0%,
-            #211c16 60%,
-            #2d231b 100%
+            110deg,
+            #151511 0%,
+            #1d1a15 55%,
+            #2c2118 100%
         );
 }
 
-.info-inner {
-    width: min(1320px, calc(100% - 80px));
+.bottom-inner {
+    width: min(1420px, calc(100% - 90px));
     margin: auto;
-    padding: 38px 0 32px;
+
+    padding: 35px 0 25px;
 }
 
-.features {
+/* =========================================
+   TRZY ELEMENTY
+========================================= */
+
+.services {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-bottom: 1px solid rgba(255,255,255,.09);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    width: 72%;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
 }
 
-.feature {
-    min-height: 105px;
-    padding: 20px 38px 27px 0;
+.service {
+    position: relative;
+
+    min-height: 115px;
+
+    padding:
+        22px 42px 28px 0;
 }
 
-.feature:not(:last-child) {
-    margin-right: 38px;
-    border-right: 1px solid rgba(255,255,255,.10);
+.service:not(:last-child) {
+    margin-right: 42px;
+
+    border-right:
+        1px solid rgba(255,255,255,.10);
 }
 
-.feature-number {
+.service small {
     display: block;
-    margin-bottom: 13px;
+
+    margin-bottom: 12px;
+
     color: var(--gold);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 12px;
-    letter-spacing: 2px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2.5px;
 }
 
-.feature h3 {
-    color: #f2eee6;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 20px;
+.service h3 {
+    color: #f4eee4;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 19px;
+
     font-weight: 400;
-    line-height: 1.25;
+
+    line-height: 1.3;
 }
 
-.gold-line {
-    width: 34px;
+.service-line {
+    width: 35px;
     height: 1px;
+
     margin-top: 15px;
+
     background: var(--gold);
 }
 
-/* DANE FIRMY */
+/* =========================================
+   DANE FIRMY
+========================================= */
 
 .company {
-    padding-top: 22px;
+    padding-top: 21px;
 }
 
 .company strong {
     display: block;
+
     margin-bottom: 7px;
+
     color: var(--gold-light);
+
     font-size: 12px;
+
     font-weight: 500;
+
     letter-spacing: .7px;
 }
 
 .company span {
-    color: rgba(255,255,255,.55);
+    color:
+        rgba(255,255,255,.55);
+
     font-size: 11px;
+
     line-height: 1.6;
 }
 
-/* TABLET */
+/* =========================================
+   TABLET
+========================================= */
 
-@media (max-width: 1050px) {
+@media (max-width: 1100px) {
 
     .header-inner,
     .hero-inner,
-    .info-inner {
+    .bottom-inner {
         width: 92%;
     }
 
     .nav {
-        gap: 19px;
-    }
-
-    .truck-photo {
-        width: 76%;
+        gap: 20px;
     }
 
     .hero-copy {
         max-width: 50%;
     }
+
+    .services {
+        width: 82%;
+    }
 }
 
-/* TELEFON */
+/* =========================================
+   TELEFON
+========================================= */
 
 @media (max-width: 760px) {
 
     .header {
-        height: 78px;
+        height: 82px;
     }
 
     .header-inner {
@@ -332,8 +450,8 @@ h1 span {
     }
 
     .logo img {
-        max-height: 55px;
-        max-width: 190px;
+        height: 58px;
+        max-width: 210px;
     }
 
     .nav {
@@ -341,64 +459,76 @@ h1 span {
     }
 
     .hero {
+        min-height: 670px;
         height: auto;
-        min-height: 650px;
+
+        background-position: 65% center;
     }
 
-    .truck-photo {
-        top: 78px;
-        width: 100%;
-        height: 572px;
-        opacity: .74;
-        object-position: 68% center;
-    }
+    .hero::before {
+        content: "";
 
-    .photo-shade {
-        inset: 78px 0 0 0;
+        position: absolute;
+        inset: 0;
+
+        z-index: 2;
+
         background:
             linear-gradient(
                 90deg,
-                rgba(15,17,15,.96) 0%,
-                rgba(15,17,15,.80) 52%,
-                rgba(15,17,15,.30) 100%
+                rgba(10,11,9,.92) 0%,
+                rgba(10,11,9,.73) 55%,
+                rgba(10,11,9,.20) 100%
             );
     }
 
     .hero-inner {
         width: 90%;
-        height: 572px;
+        height: 588px;
     }
 
     .hero-copy {
         width: 100%;
         max-width: 100%;
+
+        transform: none;
     }
 
     h1 {
-        font-size: 49px;
+        font-size: 50px;
     }
 
     .description {
-        width: 310px;
+        width: 320px;
+
         font-size: 14px;
     }
 
-    .info-inner {
+    .bottom-inner {
         width: 90%;
     }
 
-    .features {
+    .services {
+        width: 100%;
+
         grid-template-columns: 1fr;
     }
 
-    .feature {
-        padding: 25px 0;
+    .service {
+        padding: 24px 0;
     }
 
-    .feature:not(:last-child) {
+    .service:not(:last-child) {
         margin: 0;
+
         border-right: 0;
-        border-bottom: 1px solid rgba(255,255,255,.08);
+
+        border-bottom:
+            1px solid rgba(255,255,255,.08);
+    }
+
+    .company {
+        padding-bottom: 20px;
     }
 }
 </style>
@@ -408,34 +538,52 @@ h1 span {
 
 <section class="hero" id="start">
 
-    <img
-        class="truck-photo"
-        src="957AF63B-5734-4209-8A7E-3C91779629FD.PNG"
-        alt="S&A Transporte LKW"
-    >
-
-    <div class="photo-shade"></div>
-
     <header class="header">
 
         <div class="header-inner">
 
-            <a class="logo" href="#start">
-                <img src="logo.PNG" alt="S&A Transporte GmbH">
+            <a
+                class="logo"
+                href="#start"
+                aria-label="S&A Transporte GmbH"
+            >
+                <img
+                    src="logo.PNG"
+                    alt="S&A Transporte GmbH"
+                >
             </a>
 
             <nav class="nav">
-                <a class="active" href="#start">Start</a>
-                <a href="#leistungen">Leistungen</a>
-                <a href="#flotte">Flotte</a>
-                <a href="#ueber-uns">Über uns</a>
-                <a href="#kontakt">Kontakt</a>
+
+                <a
+                    class="active"
+                    href="#start"
+                >
+                    Start
+                </a>
+
+                <a href="#leistungen">
+                    Leistungen
+                </a>
+
+                <a href="#flotte">
+                    Flotte
+                </a>
+
+                <a href="#ueber-uns">
+                    Über uns
+                </a>
+
+                <a href="#kontakt">
+                    Kontakt
+                </a>
 
                 <div class="language">
                     <strong>DE</strong>
                     &nbsp;|&nbsp;
                     PL
                 </div>
+
             </nav>
 
         </div>
@@ -452,12 +600,15 @@ h1 span {
 
             <h1>
                 Zuverlässig
-                <span>in Bewegung.</span>
+                <span>
+                    in Bewegung.
+                </span>
             </h1>
 
             <p class="description">
-                Ihr Partner für professionelle Transportlösungen
-                in ganz Europa. Sicher, pünktlich und persönlich.
+                Ihr Partner für professionelle
+                Transportlösungen in ganz Europa.
+                Sicher, pünktlich und persönlich.
             </p>
 
         </div>
@@ -466,35 +617,68 @@ h1 span {
 
 </section>
 
-<section class="info" id="leistungen">
 
-    <div class="info-inner">
+<section
+    class="bottom-panel"
+    id="leistungen"
+>
 
-        <div class="features">
+    <div class="bottom-inner">
 
-            <div class="feature">
-                <span class="feature-number">01</span>
-                <h3>Europaweite<br>Transporte</h3>
-                <div class="gold-line"></div>
+        <div class="services">
+
+            <div class="service">
+
+                <small>01</small>
+
+                <h3>
+                    Europaweite<br>
+                    Transporte
+                </h3>
+
+                <div class="service-line"></div>
+
             </div>
 
-            <div class="feature">
-                <span class="feature-number">02</span>
-                <h3>Sichere<br>Abwicklung</h3>
-                <div class="gold-line"></div>
+
+            <div class="service">
+
+                <small>02</small>
+
+                <h3>
+                    Sichere<br>
+                    Abwicklung
+                </h3>
+
+                <div class="service-line"></div>
+
             </div>
 
-            <div class="feature">
-                <span class="feature-number">03</span>
-                <h3>Zuverlässige<br>Partnerschaft</h3>
-                <div class="gold-line"></div>
+
+            <div class="service">
+
+                <small>03</small>
+
+                <h3>
+                    Zuverlässige<br>
+                    Partnerschaft
+                </h3>
+
+                <div class="service-line"></div>
+
             </div>
 
         </div>
 
-        <div class="company" id="kontakt">
 
-            <strong>S&amp;A Transporte GmbH</strong>
+        <div
+            class="company"
+            id="kontakt"
+        >
+
+            <strong>
+                S&amp;A Transporte GmbH
+            </strong>
 
             <span>
                 Berliner Allee 38
@@ -509,6 +693,9 @@ h1 span {
     </div>
 
 </section>
+
+<div id="flotte"></div>
+<div id="ueber-uns"></div>
 
 </body>
 </html>
