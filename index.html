@@ -1,258 +1,966 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>S&A Transporte GmbH | Zuverlässig in Bewegung</title>
+<title>S&A Transporte GmbH | Zuverlässig in Bewegung</title>
 
-    <meta
-        name="description"
-        content="S&A Transporte GmbH – professionelle und zuverlässige Transportlösungen in Deutschland und Europa."
-    >
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+:root {
+    --gold: #cda35c;
+    --gold-light: #e4c17d;
+    --dark: #111210;
+    --cream: #f3eee5;
+}
 
-        html,
-        body {
-            width: 100%;
-            min-height: 100%;
-            background: #15130f;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            overflow-x: hidden;
-        }
+body {
+    margin: 0;
+    background: #111210;
+    color: var(--cream);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
 
-        .website {
-            width: 100%;
-            min-height: 100vh;
+/* ==============================
+   GŁÓWNA SEKCJA
+================================ */
 
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
+.hero {
+    position: relative;
+    min-height: 720px;
+    height: 78vh;
+    max-height: 850px;
+    overflow: hidden;
 
-            background:
-                radial-gradient(
-                    circle at 78% 25%,
-                    rgba(189, 125, 50, 0.12),
-                    transparent 35%
-                ),
-                #15130f;
-        }
+    background:
+        linear-gradient(
+            90deg,
+            #111310 0%,
+            rgba(17,19,16,.98) 24%,
+            rgba(24,22,18,.82) 43%,
+            rgba(30,25,19,.34) 62%,
+            rgba(20,18,15,.08) 100%
+        );
+}
 
-        .project {
-            position: relative;
+/*
+   ZDJĘCIE JEST OSOBNYM ELEMENTEM.
+   NIE UŻYWAMY background-size: cover.
+*/
 
-            width: 100%;
-            max-width: 1920px;
+.truck-photo {
+    position: absolute;
+    z-index: 1;
 
-            margin: 0 auto;
+    top: 92px;
+    right: 0;
 
-            overflow: hidden;
+    width: 72%;
+    height: calc(100% - 92px);
 
-            box-shadow:
-                0 15px 50px rgba(0, 0, 0, 0.45);
-        }
+    object-fit: contain;
+    object-position: right center;
+}
 
-        .project-image {
-            display: block;
+/* miękkie połączenie zdjęcia z ciemnym tłem */
 
-            width: 100%;
-            height: auto;
+.photo-shade {
+    position: absolute;
+    z-index: 2;
 
-            object-fit: contain;
+    inset: 92px 0 0 0;
 
-            user-select: none;
-            -webkit-user-drag: none;
-        }
+    pointer-events: none;
 
-        /*
-        ==============================================
-        KLIKALNE MENU
+    background:
+        linear-gradient(
+            90deg,
+            #111310 0%,
+            rgba(17,19,16,.98) 15%,
+            rgba(17,19,16,.83) 28%,
+            rgba(17,19,16,.40) 43%,
+            rgba(17,19,16,.08) 61%,
+            transparent 78%
+        ),
+        radial-gradient(
+            circle at 77% 44%,
+            rgba(224,155,65,.15),
+            transparent 30%
+        );
+}
 
-        Elementy są przezroczyste.
-        Leżą dokładnie nad menu widocznym
-        na zaakceptowanym projekcie.
-        ==============================================
-        */
+/* ==============================
+   HEADER
+================================ */
 
-        .menu-link {
-            position: absolute;
-            top: 3.5%;
-            height: 8%;
+.header {
+    position: relative;
+    z-index: 20;
 
-            z-index: 10;
+    height: 92px;
 
-            text-indent: -9999px;
-            overflow: hidden;
+    border-bottom:
+        1px solid rgba(255,255,255,.12);
 
-            cursor: pointer;
-        }
+    background:
+        rgba(16,18,16,.86);
+}
 
-        .menu-start {
-            left: 45%;
-            width: 7%;
-        }
+.header-inner {
+    width: min(1320px, calc(100% - 80px));
+    height: 100%;
 
-        .menu-leistungen {
-            left: 52%;
-            width: 10%;
-        }
+    margin: auto;
 
-        .menu-flotte {
-            left: 62%;
-            width: 7%;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-        .menu-ueber-uns {
-            left: 69%;
-            width: 9%;
-        }
+/* ==============================
+   LOGO
+================================ */
 
-        .menu-kontakt {
-            left: 78%;
-            width: 8%;
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 13px;
 
-        /*
-        ==============================================
-        SEKCJE DO PRZEWIJANIA
+    text-decoration: none;
+}
 
-        Na razie pozostawiamy zaakceptowaną stronę
-        dokładnie taką, jak wygląda na projekcie.
+.logo-symbol {
+    position: relative;
 
-        Następne sekcje można później dobudować
-        pod spodem bez ruszania strony głównej.
-        ==============================================
-        */
+    width: 59px;
+    height: 48px;
+}
 
-        #start,
-        #leistungen,
-        #flotte,
-        #ueber-uns,
-        #kontakt {
-            scroll-margin-top: 20px;
-        }
+.logo-s {
+    position: absolute;
 
-        /*
-        ==============================================
-        TELEFON / TABLET
+    left: 0;
+    top: -3px;
 
-        Zachowujemy cały projekt.
-        Niczego nie obcinamy.
-        ==============================================
-        */
+    font-family: Arial Black, Arial, sans-serif;
+    font-size: 44px;
+    font-weight: 900;
+    font-style: italic;
 
-        @media (max-width: 900px) {
+    line-height: 48px;
 
-            .website {
-                min-height: auto;
-            }
+    color: #e0be3f;
 
-            .project {
-                width: 100%;
-            }
+    text-shadow:
+        2px 2px 0 #b33a2d,
+        0 5px 10px rgba(0,0,0,.45);
+}
 
-            .project-image {
-                width: 100%;
-                height: auto;
-            }
-        }
+.logo-amp {
+    position: absolute;
 
-        @media (max-width: 600px) {
+    left: 29px;
+    top: 8px;
 
-            body {
-                background: #15130f;
-            }
+    font-family: Arial Black, Arial, sans-serif;
+    font-size: 27px;
+    font-weight: 900;
+    font-style: italic;
 
-            .project {
-                box-shadow: none;
-            }
-        }
-    </style>
+    color: #3475a8;
+
+    text-shadow:
+        2px 2px 0 #a53b32,
+        0 4px 8px rgba(0,0,0,.45);
+}
+
+.logo-name {
+    color: #f4efe7;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+}
+
+/* ==============================
+   MENU
+================================ */
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.nav a {
+    position: relative;
+
+    color: rgba(255,255,255,.77);
+
+    text-decoration: none;
+
+    font-size: 13px;
+    letter-spacing: .3px;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: var(--gold-light);
+}
+
+.nav a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -17px;
+
+    height: 1px;
+
+    background: var(--gold);
+}
+
+.language {
+    margin-left: 5px;
+    padding-left: 22px;
+
+    border-left:
+        1px solid rgba(255,255,255,.20);
+
+    color: rgba(255,255,255,.50);
+
+    font-size: 12px;
+}
+
+.language strong {
+    color: var(--gold-light);
+}
+
+/* ==============================
+   TEKST
+================================ */
+
+.hero-inner {
+    position: relative;
+    z-index: 10;
+
+    width: min(1320px, calc(100% - 80px));
+    height: calc(100% - 92px);
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-copy {
+    width: 510px;
+    max-width: 44%;
+
+    margin-top: -25px;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    margin-bottom: 25px;
+
+    color: #d8c5a5;
+
+    font-size: 11px;
+    letter-spacing: 4.5px;
+
+    text-transform: uppercase;
+}
+
+.eyebrow::after {
+    content: "";
+
+    width: 48px;
+    height: 1px;
+
+    background: var(--gold);
+}
+
+h1 {
+    color: #f2ede4;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(56px, 5vw, 78px);
+    font-weight: 400;
+
+    line-height: .96;
+
+    letter-spacing: -2px;
+
+    text-shadow:
+        0 5px 24px rgba(0,0,0,.38);
+}
+
+h1 span {
+    display: block;
+
+    color: var(--gold-light);
+
+    font-style: italic;
+}
+
+.description {
+    width: 410px;
+    max-width: 100%;
+
+    margin-top: 28px;
+
+    color: rgba(246,241,232,.75);
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* ==============================
+   DOLNY PANEL
+================================ */
+
+.info {
+    position: relative;
+
+    min-height: 220px;
+
+    overflow: hidden;
+
+    border-top:
+        1px solid rgba(207,163,87,.28);
+
+    background:
+        linear-gradient(
+            105deg,
+            #171713 0%,
+            #211c16 56%,
+            #34271c 100%
+        );
+}
+
+.info-inner {
+    position: relative;
+
+    width: min(1320px, calc(100% - 80px));
+
+    margin: auto;
+}
+
+/* ==============================
+   CECHY
+================================ */
+
+.features {
+    width: 72%;
+    min-height: 135px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+
+    padding: 31px 30px 31px 0;
+}
+
+.feature:not(:last-child) {
+    margin-right: 30px;
+
+    border-right:
+        1px solid rgba(255,255,255,.11);
+}
+
+.icon {
+    width: 45px;
+    height: 45px;
+
+    flex: 0 0 45px;
+
+    color: var(--gold-light);
+}
+
+.icon svg {
+    width: 100%;
+    height: 100%;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.45;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.feature h3 {
+    color: #f2eee6;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    line-height: 1.35;
+}
+
+.gold-line {
+    width: 30px;
+    height: 2px;
+
+    margin-top: 12px;
+
+    background: var(--gold);
+}
+
+/* ==============================
+   DANE FIRMY
+================================ */
+
+.company {
+    padding-top: 17px;
+}
+
+.company strong {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--gold-light);
+
+    font-size: 11px;
+    font-weight: 500;
+
+    letter-spacing: .5px;
+}
+
+.company span {
+    color: rgba(255,255,255,.52);
+
+    font-size: 10px;
+}
+
+/* ==============================
+   EUROPA - SUBTELNA GRAFIKA
+================================ */
+
+.europe {
+    position: absolute;
+
+    right: -10px;
+    top: 22px;
+
+    width: 310px;
+    height: 175px;
+
+    opacity: .44;
+}
+
+.europe svg {
+    width: 100%;
+    height: 100%;
+}
+
+.europe path,
+.europe line {
+    fill: none;
+
+    stroke:
+        rgba(221,177,100,.56);
+
+    stroke-width: 1;
+}
+
+.europe .route {
+    stroke:
+        rgba(221,177,100,.27);
+
+    stroke-dasharray: 3 5;
+}
+
+.europe circle {
+    fill: #dfad5c;
+}
+
+/* ==============================
+   TABLET
+================================ */
+
+@media (max-width: 1050px) {
+
+    .header-inner,
+    .hero-inner,
+    .info-inner {
+        width: 92%;
+    }
+
+    .nav {
+        gap: 19px;
+    }
+
+    .truck-photo {
+        width: 76%;
+    }
+
+    .hero-copy {
+        max-width: 50%;
+    }
+
+    .features {
+        width: 78%;
+    }
+}
+
+/* ==============================
+   TELEFON
+================================ */
+
+@media (max-width: 760px) {
+
+    .header {
+        height: 78px;
+    }
+
+    .header-inner {
+        width: 90%;
+    }
+
+    .logo-name {
+        font-size: 14px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .hero {
+        height: auto;
+        min-height: 650px;
+    }
+
+    .truck-photo {
+        top: 78px;
+
+        width: 100%;
+        height: 572px;
+
+        opacity: .75;
+
+        object-position: 68% center;
+    }
+
+    .photo-shade {
+        inset: 78px 0 0 0;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(15,17,15,.96) 0%,
+                rgba(15,17,15,.80) 52%,
+                rgba(15,17,15,.30) 100%
+            );
+    }
+
+    .hero-inner {
+        width: 90%;
+        height: 572px;
+    }
+
+    .hero-copy {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 49px;
+    }
+
+    .description {
+        width: 310px;
+
+        font-size: 14px;
+    }
+
+    .info-inner {
+        width: 90%;
+    }
+
+    .features {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+    }
+
+    .feature {
+        padding: 24px 0;
+    }
+
+    .feature:not(:last-child) {
+        margin: 0;
+
+        border-right: 0;
+
+        border-bottom:
+            1px solid rgba(255,255,255,.08);
+    }
+
+    .company {
+        padding: 25px 0 80px;
+    }
+
+    .europe {
+        right: -100px;
+        top: auto;
+        bottom: -10px;
+
+        opacity: .30;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<main class="website" id="start">
+<section class="hero" id="start">
 
-    <div class="project">
+    <!-- PRAWDZIWE ZDJĘCIE CIĘŻARÓWKI -->
 
-        <!--
-        ==============================================
-        ZAAKCEPTOWANY PROJEKT S&A TRANSPORTE
-        ==============================================
-        -->
+    <img
+        class="truck-photo"
+        src="957AF63B-5734-4209-8A7E-3C91779629FD.PNG"
+        alt="S&A Transporte LKW"
+    >
 
-        <img
-            class="project-image"
-            src="sa-transport-projekt.png"
-            alt="S&A Transporte GmbH – Zuverlässig in Bewegung"
-        >
+    <div class="photo-shade"></div>
 
-        <!-- KLIKALNE MENU -->
+    <!-- HEADER -->
 
-        <a
-            class="menu-link menu-start"
-            href="#start"
-            aria-label="Start"
-        >
-            Start
-        </a>
+    <header class="header">
 
-        <a
-            class="menu-link menu-leistungen"
-            href="#leistungen"
-            aria-label="Leistungen"
-        >
-            Leistungen
-        </a>
+        <div class="header-inner">
 
-        <a
-            class="menu-link menu-flotte"
-            href="#flotte"
-            aria-label="Flotte"
-        >
-            Flotte
-        </a>
+            <a class="logo" href="#start">
 
-        <a
-            class="menu-link menu-ueber-uns"
-            href="#ueber-uns"
-            aria-label="Über uns"
-        >
-            Über uns
-        </a>
+                <div class="logo-symbol">
+                    <span class="logo-s">S</span>
+                    <span class="logo-amp">&amp;</span>
+                </div>
 
-        <a
-            class="menu-link menu-kontakt"
-            href="#kontakt"
-            aria-label="Kontakt"
-        >
-            Kontakt
-        </a>
+                <span class="logo-name">
+                    S&amp;A Transporte
+                </span>
+
+            </a>
+
+            <nav class="nav">
+
+                <a class="active" href="#start">
+                    Start
+                </a>
+
+                <a href="#leistungen">
+                    Leistungen
+                </a>
+
+                <a href="#flotte">
+                    Flotte
+                </a>
+
+                <a href="#ueber-uns">
+                    Über uns
+                </a>
+
+                <a href="#kontakt">
+                    Kontakt
+                </a>
+
+                <div class="language">
+                    <strong>DE</strong>
+                    &nbsp;|&nbsp;
+                    PL
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- TEKST -->
+
+    <div class="hero-inner">
+
+        <div class="hero-copy">
+
+            <div class="eyebrow">
+                Internationale Transporte
+            </div>
+
+            <h1>
+                Zuverlässig
+                <span>in Bewegung.</span>
+            </h1>
+
+            <p class="description">
+                Ihr Partner für professionelle
+                Transportlösungen in ganz Europa.
+                Sicher, pünktlich und persönlich.
+            </p>
+
+        </div>
 
     </div>
 
-</main>
+</section>
 
-<!--
-==================================================
-PUNKTY DO PÓŹNIEJSZEJ ROZBUDOWY STRONY
-==================================================
--->
 
-<div id="leistungen"></div>
-<div id="flotte"></div>
-<div id="ueber-uns"></div>
-<div id="kontakt"></div>
+<section class="info" id="leistungen">
+
+    <div class="info-inner">
+
+        <div class="features">
+
+            <!-- TRANSPORTE -->
+
+            <div class="feature">
+
+                <div class="icon">
+
+                    <svg viewBox="0 0 48 48">
+
+                        <circle
+                            cx="24"
+                            cy="24"
+                            r="19"
+                        />
+
+                        <path d="M5 24h38"/>
+
+                        <path
+                            d="M24 5c6 6 9 12 9 19s-3 13-9 19"
+                        />
+
+                        <path
+                            d="M24 5c-6 6-9 12-9 19s3 13 9 19"
+                        />
+
+                    </svg>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Europaweite<br>
+                        Transporte
+                    </h3>
+
+                    <div class="gold-line"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BEZPIECZEŃSTWO -->
+
+            <div class="feature">
+
+                <div class="icon">
+
+                    <svg viewBox="0 0 48 48">
+
+                        <path
+                            d="M24 4l15 6v12c0 10-6 17-15 22C15 39 9 32 9 22V10z"
+                        />
+
+                        <path
+                            d="M17 24l5 5 10-11"
+                        />
+
+                    </svg>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Sichere<br>
+                        Abwicklung
+                    </h3>
+
+                    <div class="gold-line"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PARTNERSTWO -->
+
+            <div class="feature">
+
+                <div class="icon">
+
+                    <svg viewBox="0 0 48 48">
+
+                        <path
+                            d="M8 17l8-7 8 5"
+                        />
+
+                        <path
+                            d="M40 17l-8-7-8 5"
+                        />
+
+                        <path
+                            d="M14 27l10 10c2 2 5-1 3-3"
+                        />
+
+                        <path
+                            d="M20 23l12 12c2 2 5-1 3-3"
+                        />
+
+                        <path
+                            d="M24 19l14 11"
+                        />
+
+                    </svg>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Zuverlässige<br>
+                        Partnerschaft
+                    </h3>
+
+                    <div class="gold-line"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DANE FIRMY -->
+
+        <div class="company" id="kontakt">
+
+            <strong>
+                S&amp;A Transporte GmbH
+            </strong>
+
+            <span>
+                Berliner Allee 38
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                30855 Langenhagen
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                Deutschland
+            </span>
+
+        </div>
+
+
+        <!-- SUBTELNA MAPA -->
+
+        <div class="europe" aria-hidden="true">
+
+            <svg viewBox="0 0 320 180">
+
+                <path d="
+                    M43 46
+                    L61 32
+                    L80 37
+                    L92 26
+                    L108 34
+                    L123 25
+                    L140 34
+                    L156 29
+                    L171 41
+                    L193 43
+                    L203 55
+                    L222 61
+                    L218 75
+                    L233 86
+                    L222 97
+                    L228 111
+                    L213 119
+                    L204 135
+                    L186 133
+                    L175 148
+                    L158 142
+                    L148 155
+                    L136 146
+                    L124 157
+                    L111 148
+                    L96 153
+                    L87 140
+                    L72 138
+                    L66 124
+                    L51 117
+                    L54 102
+                    L41 94
+                    L50 81
+                    L42 68
+                    L53 59
+                    Z
+                "/>
+
+                <path
+                    class="route"
+                    d="M82 65 C115 83 142 92 167 106 C192 120 213 121 245 111"
+                />
+
+                <path
+                    class="route"
+                    d="M70 127 C101 108 132 103 167 106 C201 105 225 91 256 75"
+                />
+
+                <path
+                    class="route"
+                    d="M167 106 C170 126 176 141 185 157"
+                />
+
+                <circle cx="167" cy="106" r="3"/>
+                <circle cx="82" cy="65" r="2"/>
+                <circle cx="70" cy="127" r="2"/>
+                <circle cx="245" cy="111" r="2"/>
+                <circle cx="256" cy="75" r="2"/>
+                <circle cx="185" cy="157" r="2"/>
+
+            </svg>
+
+        </div>
+
+    </div>
+
+</section>
 
 </body>
 </html>
